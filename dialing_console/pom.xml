@@ -26,20 +26,44 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>${commons-compress.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <properties>
         <java.version>1.8</java.version>
+        <commons-lang3.version>3.10</commons-lang3.version>
+        <commons-io.version>2.2</commons-io.version>
+        <easyexcel.version>2.1.6</easyexcel.version>
+        <commons-csv.version>1.8</commons-csv.version>
+        <hutool.version>5.3.8</hutool.version>
+        <commons-compress.version>1.20</commons-compress.version>
         <mybatis-plus3.version>3.3.1.tmp</mybatis-plus3.version>
         <mybatis-plus-join.version>1.4.4.1</mybatis-plus-join.version>
+        <knife4j.version>2.0.8</knife4j.version>
+        <shiro.version>1.5.2</shiro.version>
     </properties>
 
     <build>
