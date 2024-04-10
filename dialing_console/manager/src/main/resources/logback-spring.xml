@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <springProfile name="prod">
+        <property name="log.base" value="/backup/logs/dialing_console"/>
+        <!--主日志保存-->
+        <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${log.base}/main.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${log.base}/main.%d{yyyy-MM-dd}.log</fileNamePattern>
+            </rollingPolicy>
+            <encoder>
+                <pattern>%date{HH:mm:ss.SSS} [%-5level]%X{preLog} %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <!--错误日志-->
+        <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!--<Encoding>UTF-8</Encoding>-->
+            <file>${log.base}/error.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${log.base}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            </rollingPolicy>
+            <encoder>
+                <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%-5level]%X{preLog} %logger - %msg%n</pattern>
+            </encoder>
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>ERROR</level>
+            </filter>
+        </appender>
+    </springProfile>
+
+    <springProfile name="dev,prod">
+        <!--本地开发环境日志只输出到控制台-->
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%date{HH:mm:ss} [%-5level]%X{preLog} %logger - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <logger name="org.mybatis.spring" level="INFO"/>
+        <logger name="com.boca" level="INFO"/>
+        <root level="INFO">
+            <appender-ref ref="console"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger name="org.mybatis.spring" level="INFO"/>
+        <logger name="com.boca" level="INFO"/>
+        <root level="INFO">
+            <appender-ref ref="rollingFile"/>
+            <appender-ref ref="errorFile"/>
+        </root>
+    </springProfile>
+
+</configuration>
