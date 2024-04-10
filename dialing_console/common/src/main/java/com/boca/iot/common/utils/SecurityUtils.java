@@ -3,7 +3,7 @@
 //import org.apache.shiro.subject.Subject;
 //
 ///**
-// * @author mhma
+// * @author lulinwei
 // */
 //public class SecurityUtils {
 //

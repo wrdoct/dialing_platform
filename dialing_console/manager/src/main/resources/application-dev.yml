@@ -1,0 +1,61 @@
+# 配置服务端口号
+server:
+  port: 38095
+
+# 配置数据库连接信息
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.222.253:30036/dialing?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234
+
+  # Redis的相关配置
+  redis:
+    # Redis数据库编号
+    database: 0
+    # Redis服务器主机地址
+    host: 192.168.222.253
+    # Redis服务器端口号
+    port: 6379
+    # Redis服务器密码（如果有密码，请取消注释并填入密码）
+    # password: 1234
+    # 键的过期时间（单位：秒）
+    expire-time: 18000
+
+    # Jedis连接池配置
+    jedis:
+      pool:
+        # 连接池中允许的最大活动连接数
+        max-active: 8
+        # 当连接池中的连接耗尽时，调用者最长等待时间（单位：毫秒），超过时间将抛出异常，值为-1表示无限等待
+        max-wait: -1
+        # 连接池中允许的最大空闲连接数
+        max-idle: 8
+        # 连接池中允许的最小空闲连接数
+        min-idle: 0
+
+# swagger配置
+knife4j:
+  # 开启增强配置
+  enable: true
+  # 开启Swagger的Basic认证功能,默认是false
+  basic:
+    enable: true
+    # Basic认证用户名
+    username: admin
+    # Basic认证密码
+    password: 111111
+
+# 自定义配置
+dialing:
+  auth:
+    noAuthUrls:
+      - /admin/system/index/login
+      - /admin/system/index/generateValidateCode
+  minio:
+    endpointUrl: http://192.168.222.253:9001 # docker的端口映射为 9001:9000
+    accessKey: admin
+    secreKey: admin123456
+    bucketName: dialing-bucket

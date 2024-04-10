@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: dialing_console
+  profiles:
+    active: dev
+  jackson:
+    mapper:
+      #在反序列化过程中，允许忽略属性名称的大小写
+      ACCEPT_CASE_INSENSITIVE_PROPERTIES: true

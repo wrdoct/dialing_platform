@@ -1,4 +1,4 @@
-package com.boca.iot.config;
+package com.boca.iot.manager.config;
 
 import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 import java.util.List;
 
 /**
- * @author llw
+ * @author lulinwei
  */
 @Configuration
 @EnableSwagger2WebMvc

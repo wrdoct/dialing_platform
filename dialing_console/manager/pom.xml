@@ -23,9 +23,25 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- spring boot web开发所需要的起步依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- lombok的依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <!-- mysql驱动 -->
@@ -46,6 +62,13 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <!--封装配置文件内容的实体类UserAuthProperties使用ConfigurationProperties需要的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!--knife4j-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -58,6 +81,7 @@
             <version>29.0-jre</version>
         </dependency>
 
+        <!--excel-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
@@ -70,25 +94,21 @@
             <artifactId>converter-gson</artifactId>
             <version>2.3.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
             <version>2.3.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>converter-scalars</artifactId>
             <version>2.3.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>converter-jackson</artifactId>
             <version>2.3.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>logging-interceptor</artifactId>

@@ -17,6 +17,7 @@
         <module>common</module>
     </modules>
 
+    <!--统一管理Spring Boot相关依赖的版本-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -25,29 +26,6 @@
                 <version>2.3.12.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-compress</artifactId>
-                <version>${commons-compress.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -60,6 +38,7 @@
         <commons-csv.version>1.8</commons-csv.version>
         <hutool.version>5.3.8</hutool.version>
         <commons-compress.version>1.20</commons-compress.version>
+        <fastjson.version>2.0.21</fastjson.version>
         <mybatis-plus3.version>3.3.1.tmp</mybatis-plus3.version>
         <mybatis-plus-join.version>1.4.4.1</mybatis-plus-join.version>
         <knife4j.version>2.0.8</knife4j.version>

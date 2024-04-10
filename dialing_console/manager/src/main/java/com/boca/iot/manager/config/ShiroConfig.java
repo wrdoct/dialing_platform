@@ -21,7 +21,7 @@
 //import java.util.Map;
 //
 ///**
-// * @author llw
+// * @author lulinwei
 // */
 //@Configuration
 //public class ShiroConfig {
