@@ -24,7 +24,7 @@
  * @Descripttion: 
  * @version: 
  * @Date: 2021-04-20 11:06:21
- * @LastEditors: huzhushan@126.com
+ * @LastEditors: lulinwei
  * @LastEditTime: 2021-04-21 12:46:41
  * @Author: huzhushan@126.com
  * @HomePage: https://huzhushan.gitee.io/vue3-element-admin
@@ -35,7 +35,7 @@
 <template>
   <div class="brand">
     <img class="logo" src="~@/assets/logo.svg" @click="goHome" />
-    <div class="title">Vue3 Element Admin</div>
+    <div class="title">拨测服务管理平台</div>
   </div>
 </template>
 <script>
@@ -59,11 +59,13 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+
   .logo {
     cursor: pointer;
     max-width: 32px;
     max-height: 32px;
   }
+
   .title {
     color: #fff;
     font-size: 14px;
