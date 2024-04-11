@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2021-04-20 11:06:21
- * @LastEditors: huzhushan@126.com
+ * @LastEditors: lulinwei
  * @LastEditTime: 2022-09-27 15:42:35
  * @Author: huzhushan@126.com
  * @HomePage: https://huzhushan.gitee.io/vue3-element-admin
@@ -22,7 +22,7 @@ const COLLAPSE = 'VEA-COLLAPSE'
 
 export const useApp = defineStore('app', {
   state: () => ({
-    title: 'Vue3 Element Admin',
+    title: '拨测服务平台',
     authorization: getItem(TOKEN),
     sidebar: {
       collapse: getItem(COLLAPSE),

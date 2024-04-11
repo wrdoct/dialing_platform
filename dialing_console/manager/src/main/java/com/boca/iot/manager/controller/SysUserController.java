@@ -7,6 +7,8 @@ import com.boca.iot.manager.model.entity.system.SysUser;
 import com.boca.iot.manager.model.vo.common.Result;
 import com.boca.iot.manager.model.vo.common.ResultCodeEnum;
 import com.boca.iot.manager.service.SysUserService;
+import com.boca.iot.manager.utils.log.annotation.Log;
+import com.boca.iot.manager.utils.log.enums.BusinessType;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,6 +29,7 @@ public class SysUserController {
     @Resource
     private SysUserService sysUserService ;
 
+    @Log(title = "分页用户列表", businessType = BusinessType.FIND)
     @ApiOperation(value = "分页用户列表")
     @GetMapping(value = "/findByPage/{pageNum}/{pageSize}")
     public Result<PageInfo<SysRole>> findByPage(SysUserDto sysUserDto ,
@@ -36,6 +39,7 @@ public class SysUserController {
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Log(title = "添加用户", businessType = BusinessType.ADD)
     @ApiOperation(value = "添加用户")
     @PostMapping(value = "/saveSysUser")
     public Result saveSysUser(@RequestBody SysUser sysUser) {
@@ -43,6 +47,7 @@ public class SysUserController {
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Log(title = "修改用户", businessType = BusinessType.EDIT)
     @ApiOperation(value = "修改用户")
     @PutMapping(value = "/updateSysUser")
     public Result updateSysUser(@RequestBody SysUser sysUser) {
@@ -50,6 +55,7 @@ public class SysUserController {
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Log(title = "删除用户", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除用户")
     @DeleteMapping(value = "/deleteById/{userId}")
     public Result deleteById(@PathVariable(value = "userId") Long userId) {
@@ -57,6 +63,7 @@ public class SysUserController {
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Log(title = "分配角色", businessType = BusinessType.DEFAULT)
     @ApiOperation(value = "分配角色")
     @PostMapping("/doAssign")
     public Result doAssign(@RequestBody AssginRoleDto assginRoleDto) {

@@ -48,6 +48,11 @@ knife4j:
     # Basic认证密码
     password: 111111
 
+# mybatis的配置
+mybatis:
+  mapper-locations: classpath:/mapper/*/*.xml
+  config-location: classpath:/mybatis-config.xml
+
 # 自定义配置
 dialing:
   auth:

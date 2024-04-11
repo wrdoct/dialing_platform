@@ -3,7 +3,6 @@ package com.boca.iot.manager.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
-import com.boca.iot.common.utils.RedisConstantsUtil;
 import com.boca.iot.manager.exception.DialingException;
 import com.boca.iot.manager.mapper.SysRoleUserMapper;
 import com.boca.iot.manager.mapper.SysUserMapper;
@@ -14,6 +13,7 @@ import com.boca.iot.manager.model.entity.system.SysUser;
 import com.boca.iot.manager.model.vo.common.ResultCodeEnum;
 import com.boca.iot.manager.model.vo.system.LoginVo;
 import com.boca.iot.manager.service.SysUserService;
+import com.boca.iot.manager.utils.RedisConstantsUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

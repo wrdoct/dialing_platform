@@ -8,6 +8,9 @@ import com.boca.iot.manager.model.entity.system.SysUser;
 import com.boca.iot.manager.model.vo.system.LoginVo;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * @author lulinwei
+ */
 public interface SysUserService {
 
     /**

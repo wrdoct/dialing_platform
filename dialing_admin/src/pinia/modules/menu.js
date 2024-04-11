@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2021-04-20 11:06:21
- * @LastEditors: huzhushan@126.com
+ * @LastEditors: lulinwei
  * @LastEditTime: 2022-09-27 16:41:46
  * @Author: huzhushan@126.com
  * @HomePage: https://huzhushan.gitee.io/vue3-element-admin
@@ -37,6 +37,20 @@ export const useMenus = defineStore('menu', () => {
         }
 
         if (item.children) {
+          targetChildren.splice(0, targetChildren.length) // 清空targetChildren再重新赋值
+          item.children.forEach(c => {
+            let childRoute = {
+              path: '/' + c.name,
+              name: c.name,
+              component: () =>
+                import('../../views/' + item.name + '/' + c.name + '.vue'),
+              meta: {
+                title: c.title,
+              },
+              hidden: false,
+            }
+            targetChildren.push(childRoute)
+          })
           route.children = getFilterRoutes(targetChildren, item.children)
         }
 

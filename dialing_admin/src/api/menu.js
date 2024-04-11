@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2021-04-20 11:06:21
- * @LastEditors: huzhushan@126.com
+ * @LastEditors: lulinwei
  * @LastEditTime: 2021-07-26 13:37:30
  * @Author: huzhushan@126.com
  * @HomePage: https://huzhushan.gitee.io/vue3-element-admin
@@ -11,10 +11,12 @@
  */
 import request from '@/utils/request'
 
+const base_api = '/admin/system/index'
+
 // 获取菜单
 export const GetMenus = params => {
   return request({
-    url: '/api/menus',
+    url: `${base_api}/menus`,
     method: 'get',
     params,
   })

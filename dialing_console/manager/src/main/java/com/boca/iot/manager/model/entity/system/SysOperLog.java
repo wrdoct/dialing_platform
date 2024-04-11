@@ -26,9 +26,9 @@ public class SysOperLog extends BaseEntity {
 	@ApiModelProperty(value = "请求方式")
 	private String requestMethod;
 
-	private Integer businessType ;			// 业务类型（0其它 1新增 2修改 3删除）
+	private String businessType ;			// 业务类型 (0默认，1新增，2删除，3修改，4查询)
 
-	@ApiModelProperty(value = "操作类别（0其它 1后台用户 2手机端用户）")
+	@ApiModelProperty(value = "操作类别（0其它 1后台用户）")
 	private String operatorType;
 
 	@ApiModelProperty(value = "操作人员")

@@ -6,10 +6,12 @@ import com.boca.iot.manager.model.entity.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author lulinwei
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @TableName(value = "sys_user")
 @ApiModel(value = "SysUser实体", description = "系统用户实体类")
