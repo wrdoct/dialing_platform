@@ -1,8 +1,14 @@
 <!--登录页面-->
 <template>
   <div class="login">
-    <el-form class="form" :model="model" :rules="rules" ref="loginForm">
-      <h1 class="title">拨测服务平台管理系统</h1>
+    <el-form
+      class="form"
+      :model="model"
+      :rules="rules"
+      ref="loginForm"
+      @keyup.enter="submit"
+    >
+      <h1 class="title">拨测服务平台管理端</h1>
       <el-form-item prop="userName">
         <el-input
           class="text"
@@ -162,6 +168,8 @@ export default defineComponent({
               useApp().initToken(data)
             } else {
               ctx.$message.error(message)
+              // 在验证失败后刷新验证码
+              state.refreshCaptcha()
             }
             state.loading = false
           }

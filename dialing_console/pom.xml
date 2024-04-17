@@ -13,7 +13,7 @@
     <description>拨测服务平台</description>
 
     <modules>
-        <module>manager</module>
+        <module>platform</module>
         <module>common</module>
     </modules>
 

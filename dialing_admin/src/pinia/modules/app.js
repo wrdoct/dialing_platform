@@ -22,7 +22,7 @@ const COLLAPSE = 'VEA-COLLAPSE'
 
 export const useApp = defineStore('app', {
   state: () => ({
-    title: '拨测服务管理平台',
+    title: '拨测服务平台管理端',
     authorization: getItem(TOKEN),
     sidebar: {
       collapse: getItem(COLLAPSE),

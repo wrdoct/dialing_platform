@@ -35,7 +35,7 @@
 <template>
   <div class="brand">
     <img class="logo" src="~@/assets/logo.svg" @click="goHome" />
-    <div class="title">拨测服务管理平台</div>
+    <div class="title">拨测服务平台用户端</div>
   </div>
 </template>
 <script>
