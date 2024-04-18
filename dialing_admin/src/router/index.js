@@ -34,13 +34,13 @@ import lock from './modules/lock'
 import home from './modules/home'
 import system from './modules/system'
 import base from './modules/base'
-import users from './modules/users'
+import dialing from './modules/dialing'
 
 /* 菜单栏的路由 */
 // 固定菜单
 export const fixedRoutes = [...home]
 // 动态菜单
-export const asyncRoutes = [...system, ...base, ...users]
+export const asyncRoutes = [...system, ...base, ...dialing]
 
 const router = createRouter({
   history: createWebHashHistory(),

@@ -20,8 +20,8 @@ export const useMenus = defineStore('menu', () => {
     return path.startsWith('/')
       ? path
       : path
-      ? `${parentPath}/${path}`
-      : parentPath
+        ? `${parentPath}/${path}`
+        : parentPath
   }
 
   const getFilterRoutes = (targetRoutes, ajaxRoutes) => {
@@ -97,7 +97,7 @@ export const useMenus = defineStore('menu', () => {
     // 方式二：有动态菜单
     // 从后台获取菜单
     const { code, data } = await GetMenus()
-
+    console.log(data)
     if (+code === 200) {
       // 添加路由之前先删除所有动态路由
       asyncRoutes.forEach(item => {

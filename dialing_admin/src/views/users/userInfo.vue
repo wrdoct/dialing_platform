@@ -1,3 +1,0 @@
-<template>
-  userInfo
-</template>
