@@ -70,10 +70,10 @@
         <el-input v-model="sysUser.description" />
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="sysUser.status">
-          <el-option label="正常" :value="1" />
-          <el-option label="停用" :value="0" />
-        </el-select>
+        <el-radio-group v-model="sysUser.status">
+          <el-radio :label="1">正常</el-radio>
+          <el-radio :label="0">停用</el-radio>
+        </el-radio-group>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submit">提交</el-button>
@@ -237,6 +237,7 @@ const defaultForm = {
   password: '',
   description: '',
   avatar: '',
+  status: '',
 }
 const sysUser = ref(defaultForm)
 

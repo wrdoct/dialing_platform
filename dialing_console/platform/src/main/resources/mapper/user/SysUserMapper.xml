@@ -78,7 +78,7 @@
         <if test="description != null and description != ''">
             description = #{description},
         </if>
-        <if test="status != null and status != ''">
+        <if test="status != null">
             status = #{status},
         </if>
         update_time =  now()
