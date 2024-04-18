@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 11/04/2024 14:39:48
+ Date: 18/04/2024 14:54:36
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `sys_login_log`  (
   `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT '删除标记（0:不可用 1:可用）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '系统用户登录记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '系统用户登录记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_login_log
@@ -88,11 +88,16 @@ CREATE TABLE `sys_oper_log`  (
   `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT '删除标记（0:不可用 1:可用）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
 -- ----------------------------
+INSERT INTO `sys_oper_log` VALUES (166, '分页用户列表', 'com.boca.iot.platform.controller.SysUserController', 'GET', 'FIND', 'MANAGE', 'admin', '/admin/system/sysUser/findByPage', '0:0:0:0:0:0:0:1', NULL, '{\"code\":200,\"data\":{\"endRow\":3,\"hasNextPage\":false,\"hasPreviousPage\":false,\"isFirstPage\":true,\"isLastPage\":true,\"list\":[{\"createTime\":\"2024-04-18 10:40:50\",\"description\":\"1\",\"id\":14,\"isDeleted\":0,\"name\":\"1\",\"password\":\"c4ca4238a0b923820dcc509a6f75849b\",\"phone\":\"1\",\"status\":1,\"updateTime\":\"2024-04-18 10:40:50\",\"userName\":\"1\"},{\"avatar\":\"http://192.168.222.253:9001/dialing-bucket/20240418/d0182d2778184b9ba9046373c1374ebetest.png\",\"createTime\":\"2024-04-18 09:58:25\",\"description\":\"用户\",\"id\":13,\"isDeleted\":0,\"name\":\"user\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"13498765432\",\"status\":1,\"updateTime\":\"2024-04-18 10:39:08\",\"userName\":\"user\"},{\"avatar\":\"https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg\",\"createTime\":\"2024-04-17 10:17:18\",\"description\":\"管理员\",\"id\":1,\"isDeleted\":0,\"name\":\"admin\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"18729357726\",\"status\":1,\"updateTime\":\"2024-04-18 09:08:57\",\"userName\":\"admin\"}],\"navigateFirstPage\":1,\"navigateLastPage\":1,\"navigatePages\":8,\"navigatepageNums\":[1],\"nextPage\":0,\"pageNum\":1,\"pageSize\":10,\"pages\":1,\"prePage\":0,\"size\":3,\"startRow\":1,\"total\":3},\"message\":\"操作成功\"}', 0, NULL, '2024-04-18 10:40:50', NULL, 0);
+INSERT INTO `sys_oper_log` VALUES (167, '修改用户', 'com.boca.iot.platform.controller.SysUserController', 'PUT', 'EDIT', 'MANAGE', 'admin', '/admin/system/sysUser/updateSysUser', '0:0:0:0:0:0:0:1', '[SysUser(userName=1, password=c4ca4238a0b923820dcc509a6f75849b, name=1, phone=1, avatar=null, description=1, status=0)]', '{\"code\":200,\"message\":\"操作成功\"}', 0, NULL, '2024-04-18 10:40:55', NULL, 0);
+INSERT INTO `sys_oper_log` VALUES (168, '分页用户列表', 'com.boca.iot.platform.controller.SysUserController', 'GET', 'FIND', 'MANAGE', 'admin', '/admin/system/sysUser/findByPage', '0:0:0:0:0:0:0:1', NULL, '{\"code\":200,\"data\":{\"endRow\":3,\"hasNextPage\":false,\"hasPreviousPage\":false,\"isFirstPage\":true,\"isLastPage\":true,\"list\":[{\"createTime\":\"2024-04-18 10:40:50\",\"description\":\"1\",\"id\":14,\"isDeleted\":0,\"name\":\"1\",\"password\":\"c4ca4238a0b923820dcc509a6f75849b\",\"phone\":\"1\",\"status\":1,\"updateTime\":\"2024-04-18 10:40:55\",\"userName\":\"1\"},{\"avatar\":\"http://192.168.222.253:9001/dialing-bucket/20240418/d0182d2778184b9ba9046373c1374ebetest.png\",\"createTime\":\"2024-04-18 09:58:25\",\"description\":\"用户\",\"id\":13,\"isDeleted\":0,\"name\":\"user\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"13498765432\",\"status\":1,\"updateTime\":\"2024-04-18 10:39:08\",\"userName\":\"user\"},{\"avatar\":\"https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg\",\"createTime\":\"2024-04-17 10:17:18\",\"description\":\"管理员\",\"id\":1,\"isDeleted\":0,\"name\":\"admin\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"18729357726\",\"status\":1,\"updateTime\":\"2024-04-18 09:08:57\",\"userName\":\"admin\"}],\"navigateFirstPage\":1,\"navigateLastPage\":1,\"navigatePages\":8,\"navigatepageNums\":[1],\"nextPage\":0,\"pageNum\":1,\"pageSize\":10,\"pages\":1,\"prePage\":0,\"size\":3,\"startRow\":1,\"total\":3},\"message\":\"操作成功\"}', 0, NULL, '2024-04-18 10:40:55', NULL, 0);
+INSERT INTO `sys_oper_log` VALUES (169, '删除用户', 'com.boca.iot.platform.controller.SysUserController', 'DELETE', 'DELETE', 'MANAGE', 'admin', '/admin/system/sysUser/deleteById/14', '0:0:0:0:0:0:0:1', NULL, '{\"code\":200,\"message\":\"操作成功\"}', 0, NULL, '2024-04-18 10:40:59', NULL, 0);
+INSERT INTO `sys_oper_log` VALUES (170, '分页用户列表', 'com.boca.iot.platform.controller.SysUserController', 'GET', 'FIND', 'MANAGE', 'admin', '/admin/system/sysUser/findByPage', '0:0:0:0:0:0:0:1', NULL, '{\"code\":200,\"data\":{\"endRow\":2,\"hasNextPage\":false,\"hasPreviousPage\":false,\"isFirstPage\":true,\"isLastPage\":true,\"list\":[{\"avatar\":\"http://192.168.222.253:9001/dialing-bucket/20240418/d0182d2778184b9ba9046373c1374ebetest.png\",\"createTime\":\"2024-04-18 09:58:25\",\"description\":\"用户\",\"id\":13,\"isDeleted\":0,\"name\":\"user\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"13498765432\",\"status\":1,\"updateTime\":\"2024-04-18 10:39:08\",\"userName\":\"user\"},{\"avatar\":\"https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg\",\"createTime\":\"2024-04-17 10:17:18\",\"description\":\"管理员\",\"id\":1,\"isDeleted\":0,\"name\":\"admin\",\"password\":\"96e79218965eb72c92a549dd5a330112\",\"phone\":\"18729357726\",\"status\":1,\"updateTime\":\"2024-04-18 09:08:57\",\"userName\":\"admin\"}],\"navigateFirstPage\":1,\"navigateLastPage\":1,\"navigatePages\":8,\"navigatepageNums\":[1],\"nextPage\":0,\"pageNum\":1,\"pageSize\":10,\"pages\":1,\"prePage\":0,\"size\":2,\"startRow\":1,\"total\":2},\"message\":\"操作成功\"}', 0, NULL, '2024-04-18 10:40:59', NULL, 0);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -107,13 +112,13 @@ CREATE TABLE `sys_role`  (
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT '删除标记（0:不可用 1:可用）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES (9, '平台管理员', 'ptgly', '平台管理员', '2023-05-04 10:36:06', '2023-06-02 09:03:31', 0);
-INSERT INTO `sys_role` VALUES (10, '用户管理员', 'yhgly', '用户管理员', '2023-05-04 10:36:22', '2023-07-18 08:40:56', 0);
+INSERT INTO `sys_role` VALUES (9, '管理员', 'wrdoct', '管理员', '2024-04-18 10:36:06', '2024-04-18 09:07:25', 0);
+INSERT INTO `sys_role` VALUES (10, '用户', 'user', '用户', '2024-04-18 10:36:22', '2024-04-18 11:06:48', 0);
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -141,12 +146,7 @@ INSERT INTO `sys_role_menu` VALUES (40, 9, 3, '2023-06-29 11:52:31', '2023-06-29
 INSERT INTO `sys_role_menu` VALUES (41, 9, 4, '2023-06-29 11:52:31', '2023-06-29 11:52:31', 0, 0);
 INSERT INTO `sys_role_menu` VALUES (42, 9, 21, '2023-06-29 11:52:31', '2023-06-29 11:52:31', 0, 0);
 INSERT INTO `sys_role_menu` VALUES (43, 9, 5, '2023-06-29 11:52:31', '2023-06-29 11:52:31', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (88, 10, 1, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (89, 10, 2, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (91, 10, 3, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (92, 10, 4, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (93, 10, 21, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
-INSERT INTO `sys_role_menu` VALUES (94, 10, 5, '2023-07-18 14:43:53', '2023-07-18 14:43:53', 0, 0);
+INSERT INTO `sys_role_menu` VALUES (112, 10, 5, '2024-04-18 09:59:00', '2024-04-18 09:59:00', 0, 0);
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -170,7 +170,8 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', '96e79218965eb72c92a549dd5a330112', 'admin', '15011113652', 'https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg', NULL, 1, '2023-05-04 10:17:18', '2023-05-04 10:37:42', 0);
+INSERT INTO `sys_user` VALUES (1, 'admin', '96e79218965eb72c92a549dd5a330112', 'admin', '18729357726', 'https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg', '管理员', 1, '2024-04-17 10:17:18', '2024-04-18 09:08:57', 0);
+INSERT INTO `sys_user` VALUES (13, 'user', '96e79218965eb72c92a549dd5a330112', 'user', '13498765432', 'http://192.168.222.253:9001/dialing-bucket/20240418/d0182d2778184b9ba9046373c1374ebetest.png', '用户', 1, '2024-04-18 09:58:25', '2024-04-18 10:39:08', 0);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -193,7 +194,7 @@ CREATE TABLE `sys_user_role`  (
 -- ----------------------------
 INSERT INTO `sys_user_role` VALUES (7, 9, 1, '2023-07-18 10:59:09', '2024-04-11 11:17:37', 0);
 INSERT INTO `sys_user_role` VALUES (10, 10, 1, '2023-07-18 11:09:35', '2024-04-11 11:17:39', 0);
-INSERT INTO `sys_user_role` VALUES (11, 10, 2, '2023-07-18 14:28:42', '2024-04-11 11:17:41', 0);
+INSERT INTO `sys_user_role` VALUES (14, 10, 13, '2024-04-18 09:58:32', '2024-04-18 09:58:32', 0);
 
 -- ----------------------------
 -- Table structure for user_info
@@ -217,7 +218,7 @@ CREATE TABLE `user_info`  (
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT '删除标记（0:不可用 1:可用）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '会员表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '会员表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_info
