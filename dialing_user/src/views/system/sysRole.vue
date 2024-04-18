@@ -126,6 +126,8 @@ const pageParams = ref(pageParamsForm) // 将pageParamsForm包装成支持响应
 // 搜索表单数据
 const queryDto = ref({
   roleName: '',
+  pageNum: pageParams.value.pageNum,
+  pageSize: pageParams.value.pageSize,
 })
 
 // 控制对话是否展示的变量
@@ -158,11 +160,7 @@ const resetData = () => {
 
 // axios远程调用后端分页查询接口
 const fetchData = async () => {
-  const { data, code, message } = await GetSysRoleListByPage(
-    pageParams.value.pageNum,
-    pageParams.value.pageSize,
-    queryDto.value
-  )
+  const { data, code, message } = await GetSysRoleListByPage(queryDto.value)
   list.value = data.list
   total.value = data.total
 }

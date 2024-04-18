@@ -7,9 +7,9 @@ import request from '@/utils/request'
 const base_api = '/admin/system/sysUser'
 
 // 分页查询
-export const GetSysUserListByPage = (pageNum, pageSize, queryDto) => {
+export const GetSysUserListByPage = queryDto => {
   return request({
-    url: `${base_api}/findByPage/${pageNum}/${pageSize}`,
+    url: `${base_api}/findByPage`,
     method: 'get',
     params: queryDto,
   })
