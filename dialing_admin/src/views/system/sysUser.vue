@@ -57,7 +57,7 @@
       <el-form-item label="头像">
         <el-upload
           class="avatar-uploader"
-          action="http://localhost:8501/admin/system/fileUpload"
+          :action="`${request.defaults.baseURL}/admin/system/fileUpload`"
           :show-file-list="false"
           :on-success="handleAvatarSuccess"
           :headers="headers"
@@ -142,6 +142,7 @@ import {
 } from '@/api/sysUser'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useApp } from '@/pinia/modules/app' // 用户头像的上传
+import request from '@/utils/request'
 import { GetAllRoleList } from '@/api/sysRole'
 import { DoAssignRoleToUser } from '@/api/sysUser' // 分配角色
 
@@ -168,13 +169,6 @@ const list = ref([
 // 分页条数据模型
 const total = ref(0)
 
-// 定义搜索表单数据模型
-const queryDto = ref({
-  keyword: '',
-  createTimeBegin: '',
-  createTimeEnd: '',
-})
-
 // 开始和结束时间数据模型
 const createTimes = ref([])
 
@@ -184,6 +178,15 @@ const pageParamsForm = {
   limit: 10, // 每页记录数 pageSize
 }
 const pageParams = ref(pageParamsForm)
+
+// 定义搜索表单数据模型
+const queryDto = ref({
+  keyword: '',
+  createTimeBegin: '',
+  createTimeEnd: '',
+  pageNum: pageParams.value.page,
+  pageSize: pageParams.value.limit,
+})
 
 // onMounted钩子函数
 onMounted(() => {
@@ -208,11 +211,7 @@ const fetchData = async () => {
     queryDto.value.createTimeEnd = createTimes.value[1]
   }
   // 请求后端接口进行分页查询
-  const { code, message, data } = await GetSysUserListByPage(
-    pageParams.value.page,
-    pageParams.value.limit,
-    queryDto.value
-  )
+  const { code, message, data } = await GetSysUserListByPage(queryDto.value)
   list.value = data.list
   total.value = data.total
 }
@@ -281,7 +280,7 @@ const deleteById = row => {
 
 // 用户头像的上传
 const headers = {
-  token: useApp().authorization.token, // 从pinia中获取token，在进行文件上传的时候将token设置到请求头中
+  authorization: useApp().authorization.token, // 从pinia中获取token，在进行文件上传的时候将token设置到请求头中
 }
 // 图像上传成功以后的事件处理函数
 const handleAvatarSuccess = (response, uploadFile) => {

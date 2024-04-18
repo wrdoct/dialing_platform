@@ -25,10 +25,10 @@ public class SysRoleController {
     private SysRoleService sysRoleService ;
 
     @ApiOperation(value = "分页角色列表")
-    @PostMapping("/findByPage/{pageNum}/{pageSize}")
+    @PostMapping("/findByPage")
     public Result<PageInfo<SysRole>> findByPage(@RequestBody SysRoleDto sysRoleDto ,
-                                                @PathVariable(value = "pageNum") Integer pageNum ,
-                                                @PathVariable(value = "pageSize") Integer pageSize) {
+                                                @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum ,
+                                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
         PageInfo<SysRole> pageInfo = sysRoleService.findByPage(sysRoleDto , pageNum , pageSize) ;
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
     }

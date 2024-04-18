@@ -31,10 +31,10 @@ public class SysUserController {
 
     @Log(title = "分页用户列表", businessType = BusinessType.FIND)
     @ApiOperation(value = "分页用户列表")
-    @GetMapping(value = "/findByPage/{pageNum}/{pageSize}")
+    @GetMapping(value = "/findByPage")
     public Result<PageInfo<SysRole>> findByPage(SysUserDto sysUserDto ,
-                                                @PathVariable(value = "pageNum") Integer pageNum ,
-                                                @PathVariable(value = "pageSize") Integer pageSize) {
+                                                @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum ,
+                                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
         PageInfo<SysUser> pageInfo = sysUserService.findByPage(sysUserDto , pageNum , pageSize) ;
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
     }
