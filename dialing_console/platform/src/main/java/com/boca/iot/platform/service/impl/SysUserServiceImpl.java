@@ -115,7 +115,6 @@ public class SysUserServiceImpl implements SysUserService {
         String password = sysUser.getPassword();
         String digestPassword = DigestUtils.md5DigestAsHex(password.getBytes());
         sysUser.setPassword(digestPassword);
-        sysUser.setStatus(0);
         sysUserMapper.saveSysUser(sysUser) ;
     }
 

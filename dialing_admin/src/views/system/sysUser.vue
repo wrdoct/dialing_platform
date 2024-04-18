@@ -69,6 +69,12 @@
       <el-form-item label="描述">
         <el-input v-model="sysUser.description" />
       </el-form-item>
+      <el-form-item label="状态">
+        <el-select v-model="sysUser.status">
+          <el-option label="正常" :value="1" />
+          <el-option label="停用" :value="0" />
+        </el-select>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submit">提交</el-button>
         <el-button @click="dialogVisible = false">取消</el-button>
